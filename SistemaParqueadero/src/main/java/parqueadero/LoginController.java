@@ -20,7 +20,7 @@ public class LoginController {
         String pass = txtPassword.getText();
 
         if (usuarioService.autenticar(user, pass)) {
-            App.changeScene("dashboard.fxml", "Parqueadero - Dashboard");
+            App.changeScene("/parqueadero/dashboard.fxml", "Parqueadero - Dashboard");
         } else {
             AlertUtil.error("Credenciales incorrectas");
         }
