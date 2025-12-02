@@ -114,7 +114,7 @@ public class SalidaController {
 
     @FXML
     private void volverDashboard() {
-        App.changeScene("dashboard.fxml", "Dashboard");
+        App.changeScene("/parqueadero/dashboard.fxml", "Dashboard");
     }
 
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {

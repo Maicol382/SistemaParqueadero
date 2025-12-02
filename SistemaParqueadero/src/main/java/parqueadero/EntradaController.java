@@ -20,7 +20,7 @@ public class EntradaController {
 
     @FXML
     private void volverDashboard() {
-        App.changeScene("dashboard.fxml", "Dashboard");
+        App.changeScene("/parqueadero/dashboard.fxml", "Dashboard");
     }
 
     @FXML

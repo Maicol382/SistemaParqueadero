@@ -56,7 +56,15 @@ public class App extends Application {
 
     public static void changeScene(String fxmlFile, String title) {
         try {
-            FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlFile));
+            String normalizedPath = normalizeFxmlPath(fxmlFile);
+            java.net.URL resourceUrl = App.class.getResource(normalizedPath);
+
+            if (resourceUrl == null) {
+                System.err.println("No se encontró el recurso FXML: " + normalizedPath);
+                return;
+            }
+
+            FXMLLoader loader = new FXMLLoader(resourceUrl);
             Scene scene;
             scene = new Scene(loader.load(), 1100, 700);
 
@@ -68,6 +76,22 @@ public class App extends Application {
             System.err.println("Error cargando " + fxmlFile + ": " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static String normalizeFxmlPath(String fxmlFile) {
+        if (fxmlFile == null || fxmlFile.isBlank()) {
+            throw new IllegalArgumentException("El nombre del archivo FXML no puede estar vacío");
+        }
+
+        if (fxmlFile.startsWith("/")) {
+            return fxmlFile;
+        }
+
+        if (!fxmlFile.startsWith("parqueadero/")) {
+            return "/parqueadero/" + fxmlFile;
+        }
+
+        return "/" + fxmlFile;
     }
 
     // Métodos para refrescar estadísticas en tiempo real
