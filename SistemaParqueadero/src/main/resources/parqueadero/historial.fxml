@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="parqueadero.HistorialController"
+            prefWidth="1200" prefHeight="750">
+
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT"
+              style="-fx-background-color: #E3F2FD; -fx-padding: 12;">
+            <Button text="Volver" onAction="#volverDashboard"
+                    style="-fx-background-color: #1565C0; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" style="-fx-padding: 30;">
+            <Label text="Historial Completo de Movimientos"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+
+            <TableView fx:id="tablaHistorial" prefHeight="600">
+                <columns>
+                    <TableColumn text="Placa" prefWidth="140">
+                        <cellValueFactory><PropertyValueFactory property="placa"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Ingreso" prefWidth="220">
+                        <cellValueFactory><PropertyValueFactory property="ingreso"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Salida" prefWidth="220">
+                        <cellValueFactory><PropertyValueFactory property="salida"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Espacio" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="espacio"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Monto" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="monto"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

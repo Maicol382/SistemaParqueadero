@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="parqueadero.UsuariosController"
+            prefWidth="900" prefHeight="600">
+
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #E3F2FD; -fx-padding: 12;">
+            <Button text="Volver" onAction="#volverDashboard"
+                    style="-fx-background-color: #1565C0; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="25" style="-fx-padding: 40;">
+            <Label text="Gestión de Usuarios"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #7B1FA2;"/>
+
+            <GridPane hgap="15" vgap="15">
+                <Label text="Usuario:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtUser" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Contraseña:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="txtPass" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Rol:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbRol" prefWidth="150" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Button text="Crear Usuario" onAction="#crearUsuario" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                        style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </GridPane>
+
+            <TableView fx:id="tablaUsuarios" prefHeight="350">
+                <columns>
+                    <TableColumn text="Usuario" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="username"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Rol" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="rol"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Fecha" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="fechaCreacionFormateada"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Eliminar Seleccionado" onAction="#eliminarUsuario"
+                        style="-fx-background-color: #D32F2F; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

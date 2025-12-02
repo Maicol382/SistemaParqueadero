@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="30.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="parqueadero.EstadisticasController">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Label text="Estadísticas del Parqueadero" style="-fx-text-fill: #2c3e50;">
+        <font>
+            <Font name="System Bold" size="28.0"/>
+        </font>
+    </Label>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Ingresos del día:" style="-fx-font-size: 18px;"/>
+        <Label fx:id="lblIngresosDia" text="&#36;0"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Vehículos atendidos hoy:" style="-fx-font-size: 18px;"/>
+        <Label fx:id="lblVehiculosHoy" text="0"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Total recaudado este mes:" style="-fx-font-size: 18px;"/>
+        <Label fx:id="lblTotalMes" text="&#36;0"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+    </HBox>
+
+    <Button text="Volver"
+            onAction="#volverDashboard"
+            style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30 10 30;"/>
+</VBox>
